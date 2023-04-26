@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container justify-content-center">
     
     <app-aircrafts-navbar></app-aircrafts-navbar>
     <ng-container *ngIf="aircraftsState$ | async as state" [ngSwitch]="state.dataState">
         <ng-container *ngSwitchCase="aircraftStateEnum.INITIAL">
-            <div class="p-2">Initial state</div>
+            <div class="p-2 text-center">Initial state</div>
         </ng-container>
         <ng-container *ngSwitchCase="aircraftStateEnum.LOADING">
             <div class="p-2">Loading</div>

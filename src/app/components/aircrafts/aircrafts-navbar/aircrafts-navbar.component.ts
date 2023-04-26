@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Aircraft } from 'src/app/models/aircraft.model';
-import { GetAllAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
+import { GetAircraftsByDesignAction, GetAircraftsByDevelopmentAction, GetAllAircraftsAction } from 'src/app/ngrx/aircrafts.actions';
 import { AircraftService } from 'src/app/services/aircraft.service';
 
 @Component({
@@ -32,7 +32,7 @@ ngOnInit(): void {
       complete : () => this.error = null
     })*/
     //this.aircrafts$ = this.aircraftService.getDesignedAircrafts();
-    
+    this.store.dispatch(new GetAircraftsByDesignAction ({}));
   }
   getAircraftsByDevelopment(){
     /*this.aircraftService.getDevelopmentAircrafts().subscribe({
@@ -41,5 +41,6 @@ ngOnInit(): void {
       complete : () => this.error = null
     })*/
     //this.aircrafts$ = this.aircraftService.getDevelopmentAircrafts();
+    this.store.dispatch(new GetAircraftsByDevelopmentAction({}));
   }
 }
