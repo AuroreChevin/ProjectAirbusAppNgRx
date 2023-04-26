@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, map } from 'rxjs';
 import { Aircraft } from 'src/app/models/aircraft.model';
+import { AircraftsState, AircraftsStateEnum } from 'src/app/ngrx/aircrafts.state';
 import { AircraftService } from 'src/app/services/aircraft.service';
 
 @Component({
@@ -8,24 +11,16 @@ import { AircraftService } from 'src/app/services/aircraft.service';
   styleUrls: ['./aircrafts.component.css']
 })
 export class AircraftsComponent implements OnInit{
-  aircrafts: Aircraft[] | null = null;
-  error = null;
-  constructor(private aircraftService: AircraftService){}
+  //aircrafts: Aircraft[] | null = null;
+  aircraftsState$: Observable<AircraftsState> | null = null;
+  readonly aircraftStateEnum = AircraftsStateEnum;
+  constructor(private store: Store<any>){}
   ngOnInit(): void {
-    
+    this.aircraftsState$ = this.store.pipe(
+      map((state)=> state.airbusState)
+    );
   }
-  getAllAircrafts(){
-    this.aircraftService.getAircrafts().subscribe({
-      next : (data) => this.aircrafts = data,
-      error : (err) => this.error = err.message,
-      complete : () => this.error = null
-    })
-  }
-  getAircraftsByDesigned(){
-    this.aircraftService.getDesignedAircrafts().subscribe({
-      next : (data) => this.aircrafts = data,
-      error : (err) => this.error = err.message,
-      complete : () => this.error = null
-    })
-  }
+  
+  
+  
 }
