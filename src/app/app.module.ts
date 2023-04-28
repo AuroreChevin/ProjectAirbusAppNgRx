@@ -11,12 +11,14 @@ import { AircraftsNavbarComponent } from './components/aircrafts/aircrafts-navba
 import { AircraftsReducer } from './ngrx/aircrafts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
 import { FormsModule } from '@angular/forms';
+import { AircraftsAlertComponent } from './components/aircrafts/aircrafts-alert/aircrafts-alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AircraftsComponent,
-    AircraftsNavbarComponent
+    AircraftsNavbarComponent,
+    AircraftsAlertComponent
   ],
   imports: [
     BrowserModule,

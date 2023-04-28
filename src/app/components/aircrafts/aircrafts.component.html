@@ -3,7 +3,7 @@
     <app-aircrafts-navbar></app-aircrafts-navbar>
     <ng-container *ngIf="aircraftsState$ | async as state" [ngSwitch]="state.dataState">
         <ng-container *ngSwitchCase="aircraftStateEnum.INITIAL">
-            <div class="p-2 text-center">Initial state</div>
+            <div class="p-2">Initial state</div>
         </ng-container>
         <ng-container *ngSwitchCase="aircraftStateEnum.LOADING">
             <div class="p-2">Loading</div>
@@ -27,6 +27,9 @@
                 </tr>
                 </tbody>
             </table>
+        </ng-container>
+        <ng-container *ngIf="countAlertAircraft$ | async as countAircrafts">
+            <h6 class="text-danger">Total aircrafts under design & dev: {{countAircrafts}}</h6>
         </ng-container>
     </ng-container>
 </div>
