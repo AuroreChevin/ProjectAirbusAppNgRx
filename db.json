@@ -30,5 +30,15 @@
             "design": true,
             "development": true
         }
+    ],
+    "users":[
+      {
+        "email":"elbab@gmail.com",
+        "password":"1234"
+      },
+     {
+        "email":"pierre@gmail.com",
+        "password":"123"
+      }
     ]
 }

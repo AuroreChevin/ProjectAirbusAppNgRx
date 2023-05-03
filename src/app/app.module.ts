@@ -10,21 +10,24 @@ import { AircraftsComponent } from './components/aircrafts/aircrafts.component';
 import { AircraftsNavbarComponent } from './components/aircrafts/aircrafts-navbar/aircrafts-navbar.component';
 import { AircraftsReducer } from './ngrx/aircrafts.reducer';
 import { AircraftsEffects } from './ngrx/aircrafts.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AircraftsAlertComponent } from './components/aircrafts/aircrafts-alert/aircrafts-alert.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AircraftsComponent,
     AircraftsNavbarComponent,
-    AircraftsAlertComponent
+    AircraftsAlertComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({airbusState : AircraftsReducer}),
     EffectsModule.forRoot([AircraftsEffects]),
     StoreDevtoolsModule.instrument()

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card col-md-3 m-auto">
+        <div class="card-header">Authentication</div>
+        <div *ngIf="!connected">
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm)">
+                    <div class="form-group mb-3">
+                      <label class="control-label">Email:</label>
+                      <input  type="email" formControlName="email" class="form-control" >
+                    </div>
+                    <div class="form-group mb-3">
+                      <label class="control-label">Password</label>
+                      <input type="password" formControlName="password" class="form-control" >
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                    <div class="text-danger"> {{error}}</div>
+                </form>
+            </div>
+          </div>  
+    </div>
+</div>

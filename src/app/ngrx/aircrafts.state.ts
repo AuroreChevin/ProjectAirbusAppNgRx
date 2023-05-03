@@ -1,4 +1,7 @@
+import { EntityAdapter, EntityState } from "@ngrx/entity";
 import { Aircraft } from "../models/aircraft.model";
+
+
 
 export enum AircraftsStateEnum{
     LOADING = "Loading",
@@ -6,7 +9,7 @@ export enum AircraftsStateEnum{
     ERROR = "Error",
     INITIAL = "Initial"
 }
-export interface AircraftsState{
+export interface AircraftsState extends EntityState<Aircraft>  {
     aircrafts : Aircraft[],
     errorMessage: string,
     dataState : AircraftsStateEnum
@@ -14,5 +17,9 @@ export interface AircraftsState{
 export const initState: AircraftsState = {
     aircrafts : [],
     errorMessage: "",
-    dataState : AircraftsStateEnum.INITIAL
+    dataState : AircraftsStateEnum.INITIAL,
+    ids: [],
+    entities: {}
 }
+
+

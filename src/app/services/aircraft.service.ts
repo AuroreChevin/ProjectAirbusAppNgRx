@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { Aircraft } from '../models/aircraft.model';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,4 +23,5 @@ export class AircraftService {
   public getAircraftById(id: number): Observable<Aircraft[]>{
     return this.http.get<Aircraft[]>(environment.host+"/aircrafts/"+id);
   }
+  
 }

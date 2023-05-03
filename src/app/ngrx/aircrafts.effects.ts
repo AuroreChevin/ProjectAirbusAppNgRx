@@ -3,7 +3,7 @@ import { AircraftService } from "../services/aircraft.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Observable, catchError, map, mergeMap, of } from "rxjs";
 import { Action } from "@ngrx/store";
-import { AircraftsActionsTypes, GetAircraftsByDevelopmentActionError, GetAircraftsByDesignActionSuccess, GetAircraftsByDevelopmentAction, GetAircraftsByDevelopmentActionSuccess, GetAllAircraftsActionError, GetAllAircraftsActionSuccess } from "./aircrafts.actions";
+import { AircraftsActionsTypes, GetAircraftsByDesignActionSuccess, GetAircraftsByDevelopmentActionError, GetAircraftsByDevelopmentActionSuccess, GetAllAircraftsActionError, GetAllAircraftsActionSuccess } from "./aircrafts.actions";
 
 @Injectable ()
 export class AircraftsEffects{

@@ -1,3 +1,4 @@
+
 import { Action } from "@ngrx/store";
 import { Aircraft } from "../models/aircraft.model";
 
@@ -13,6 +14,10 @@ export enum AircraftsActionsTypes{
     GET_AIRCRAFTS_BY_DEVELOPMENT = "[Aircrafts] Get Aircrafts By Development",
     GET_AIRCRAFTS_BY_DEVELOPMENT_SUCCESS = "[Aircrafts] Get Aircrafts By Development Success",
     GET_AIRCRAFTS_BY_DEVELOPMENT_ERROR = "[Aircrafts] Get Aircrafts By Development Error",
+
+    ADD_AIRCRAFT = "[Aircrafts] Add Aircraft",
+    ADD_AIRCRAFT_SUCCESS = "[Aircrafts] Add Aircraft Success",
+    ADD_AIRCRAFT_ERROR = "[Aircrafts] Add Aircraft Success"
 }
 export class GetAllAircraftsAction implements Action{
     constructor(public payload:any){}
@@ -52,6 +57,18 @@ export class GetAircraftsByDevelopmentActionError implements Action{
     constructor(public payload:string){}
     type: AircraftsActionsTypes = AircraftsActionsTypes.GET_AIRCRAFTS_BY_DEVELOPMENT_SUCCESS;
 }
+export class AddAircraft implements Action{
+    constructor(public payload:number){}
+    type: AircraftsActionsTypes = AircraftsActionsTypes.ADD_AIRCRAFT;
+}
+export class AddAircraftSucces implements Action{
+    constructor(public payload:Aircraft){}
+    type: AircraftsActionsTypes = AircraftsActionsTypes.ADD_AIRCRAFT_SUCCESS;
+}
+export class AddAircraftError implements Action{
+    constructor(public payload:string){}
+    type: AircraftsActionsTypes = AircraftsActionsTypes.ADD_AIRCRAFT_ERROR;
+}
 export type AircraftsActions = GetAllAircraftsAction | GetAllAircraftsActionSuccess | GetAllAircraftsActionError | GetAircraftsByDesignAction |
 GetAircraftsByDesignActionSuccess | GetAircraftsByDesignActionError | GetAircraftsByDevelopmentAction | GetAircraftsByDevelopmentActionSuccess |
-GetAircraftsByDevelopmentActionError;
+GetAircraftsByDevelopmentActionError | AddAircraft | AddAircraftSucces | AddAircraftError;
